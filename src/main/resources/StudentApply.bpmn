@@ -74,11 +74,11 @@
       <bpmn:incoming>SequenceFlow_0x6rl87</bpmn:incoming>
       <bpmn:outgoing>SequenceFlow_1y1y3tw</bpmn:outgoing>
     </bpmn:userTask>
-    <bpmn:userTask id="Task_0lk2ddh" name="补充材料" camunda:assignee="${assignee_uploador1}">
+    <bpmn:userTask id="Task_0lk2ddh" name="补充材料1" camunda:assignee="${assignee_uploador1}">
       <bpmn:incoming>SequenceFlow_033y42k</bpmn:incoming>
       <bpmn:outgoing>SequenceFlow_0wy1hpt</bpmn:outgoing>
     </bpmn:userTask>
-    <bpmn:userTask id="Task_16x5tg0" name="补充材料" camunda:assignee="${assignee_uploador2}">
+    <bpmn:userTask id="Task_16x5tg0" name="补充材料2" camunda:assignee="${assignee_uploador2}">
       <bpmn:incoming>SequenceFlow_15mlcf7</bpmn:incoming>
       <bpmn:outgoing>SequenceFlow_0x6rl87</bpmn:outgoing>
     </bpmn:userTask>

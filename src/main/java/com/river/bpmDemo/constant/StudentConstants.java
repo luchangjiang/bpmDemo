@@ -13,4 +13,7 @@ public interface StudentConstants {
     String ASSIGNEE_UPLOADOR1 = "assignee_uploador1";
     String ASSIGNEE_AUDITOR2 = "assignee_auditor2";
     String ASSIGNEE_UPLOADOR2 = "assignee_uploador2";
+
+    String EXTRA_DATA_1 = "extra_data_1";
+    String EXTRA_DATA_2 = "extra_data_2";
 }

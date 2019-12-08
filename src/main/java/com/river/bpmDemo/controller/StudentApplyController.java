@@ -109,8 +109,8 @@ public class StudentApplyController {
 
         if(task !=null) {
             var vars = new HashMap<String, Object>();
-            Object extraObj = runtimeService.getVariable(task.getProcessDefinitionId(), StudentConstants.EXTRA_INFO_1);
-            if(extraObj != null) {
+            Map<String, Object> variables = taskService.getVariables(task.getId());
+            if(variables != null && variables.containsKey(StudentConstants.EXTRA_DATA_1)) {
                 vars.put(StudentConstants.EXTRA_INFO_1, false);
             }
             else{
@@ -126,7 +126,7 @@ public class StudentApplyController {
         }
     }
 
-    @ApiOperation("老师审核")
+    @ApiOperation("教务处审核")
     @PostMapping("/processAudit2")
     public R processAudit2(@RequestBody ProcessAuditDTO dto){
         Task task = taskService.createTaskQuery()
@@ -135,8 +135,8 @@ public class StudentApplyController {
 
         if(task !=null) {
             var vars = new HashMap<String, Object>();
-            Object extraObj = runtimeService.getVariable(task.getProcessDefinitionId(), StudentConstants.EXTRA_INFO_1);
-            if(extraObj != null) {
+            Map<String, Object> variables = taskService.getVariables(task.getId());
+            if(variables != null && variables.containsKey(StudentConstants.EXTRA_DATA_2)) {
                 vars.put(StudentConstants.EXTRA_INFO_2, false);
             }
             else{
@@ -164,12 +164,12 @@ public class StudentApplyController {
         }else {
             var vars = new HashMap<String, Object>();
 
-            if("老师审核".equals(task.getName())) {
+            if("补充材料1".equals(task.getName())) {
                 vars.put(StudentConstants.ASSIGNEE_AUDITOR1, dto.getAssignee());
-                vars.put(StudentConstants.EXTRA_INFO_1, dto.getExtraInfo());
+                vars.put(StudentConstants.EXTRA_DATA_1, dto.getExtraInfo());
             }else{
                 vars.put(StudentConstants.ASSIGNEE_AUDITOR2, dto.getAssignee());
-                vars.put(StudentConstants.EXTRA_INFO_2, dto.getExtraInfo());
+                vars.put(StudentConstants.EXTRA_DATA_2, dto.getExtraInfo());
             }
             taskService.complete(task.getId(), vars);
             return R.ok();
